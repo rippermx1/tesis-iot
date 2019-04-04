@@ -15,6 +15,12 @@ class CreateLogsTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->bigIncrements('id');
+	    $table->integer('id_dispositivo')->nullable(true);
+	    $table->string('descripcion', 100)->nullable(true);
+	    $table->integer('encendido')->nullable(true);
+	    $table->integer('luminosidad')->nullable(true);
+	    $table->date('fecha')->nullable(true);
+	    $table->time('hora')->nullable(true);
             $table->timestamps();
         });
     }
