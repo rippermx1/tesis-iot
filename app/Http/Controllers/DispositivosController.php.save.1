@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Dispositivos;
+
+class DispositivosController extends Controller
+{
+	public function getAll(){
+		try{
+			return response()->json(['result' => 'success', 'data' => Dispositivos::all()], 200);
+		}catch(Exception $e){}
+	}
+
+	public function getById($id){
+		try{
+			return response()->json(['result' => 'success', 'data' => Dispositivos::where('id', $id)->first()]);
+		}catch(Exception $e){}
+	}
+
+	public function getStatusById($pin){
+		try{
+			return response()->json(['result' => 'success', 'status' => (boolean)((Dispositivos::where('pin', $pin)->first())->estado)], 200);
+		}catch(Exception $e){}
+	}
+
+	public function updateDevice($pin, $encendido, $luminosidad){
+		try{
+			$dispositivo = json_decode(Dispositivos::where('pin', $pin)->first()), true;
+			if(is_null($dispositivo))
+				return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 404);
+			$dispositivo = json_decode($dispositivo, true);
+dd($dispositivo);
+			dd(Dispositivos::updateOrCreate(['id' => $dispositivo->id], $dispositivo));
+		}catch(Exception $e){}
+	}
+}

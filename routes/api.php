@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('dispositivos', 'DispositivosController@getAll');
+Route::get('dispositivo/{id}', 'DispositivosController@getById');
+Route::get('dispositivo/{pin}/estado', 'DispositivosController@getStatusById');
+Route::get('dispositivo/{pin}/estado/{estado}', 'DispositivosController@updateStatus');
+Route::get('dispositivo/{pin}/encendido/{encendido}/luminosidad/{luminosidad}', 'DispositivosController@updateDevice');
