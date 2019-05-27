@@ -22,3 +22,5 @@ Route::get('dispositivo/{id}', 'DispositivosController@getById');
 Route::get('dispositivo/{pin}/estado', 'DispositivosController@getStatusById');
 Route::get('dispositivo/{pin}/estado/{estado}', 'DispositivosController@updateStatus');
 Route::get('dispositivo/{pin}/encendido/{encendido}/luminosidad/{luminosidad}', 'DispositivosController@updateDevice');
+
+Route::post('dispositivo', 'DispositivosController@create');

@@ -53,4 +53,20 @@ class DispositivosController extends Controller
 		}catch(Exception $e){}
 	}
 
+	/**
+     * Crea un nuevo dispositivo
+     */
+	public function create(Request $request){
+        $dispositivo = Dispositivos::where('pin', $request->pin)->firts();
+        if(!is_null($dispositivo))
+            if($dispositivo->estado)
+                return response()->json(['result' => 'error', 'data' => 'Dispositivo en uso'], 400);
+
+        $dispositivo = Dispositivos::create([
+           'tag' => $request->tag,
+           'pin' => $request->pin
+        ]);
+        return response()->json(['result' => 'success', 'data' => 'Dispositivo '.$dispositivo->tag.' creado'], 200);
+    }
+
 }
