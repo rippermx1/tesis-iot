@@ -6,27 +6,52 @@ use Illuminate\Http\Request;
 
 use App\Dispositivos;
 
+/**
+ * Class DispositivosController
+ * @package App\Http\Controllers
+ */
 class DispositivosController extends Controller
 {
-	public function getAll(){
+    /**
+     * Get all home's devices
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getAll(){
 		try{
 			return response()->json(['result' => 'success', 'data' => Dispositivos::all()], 200);
 		}catch(Exception $e){}
 	}
 
-	public function getById($id){
+    /**
+     * Get home device by id
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getById($id){
 		try{
 			return response()->json(['result' => 'success', 'data' => Dispositivos::where('id', $id)->first()]);
 		}catch(Exception $e){}
 	}
 
-	public function getStatusById($pin){
+    /**
+     * Get current device status
+     * @param $pin
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getMicroControllerPinStatus($pin){
 		try{
 			return response()->json(['result' => 'success', 'status' => (boolean)((Dispositivos::where('pin', $pin)->first())->estado)], 200);
 		}catch(Exception $e){}
 	}
 
-	public function updateDevice($pin, $encendido, $luminosidad){
+    /**
+     * Update a home device by Microcontroller pin
+     * @param $pin
+     * @param $encendido
+     * @param $luminosidad
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function syncDevice($pin, $encendido, $luminosidad){
 		try{
 			$dispositivo = Dispositivos::where('pin', $pin)->first();
 			if(is_null($dispositivo))
@@ -40,11 +65,17 @@ class DispositivosController extends Controller
 		}catch(Exception $e){}
 	}
 
-	public function updateStatus($pin, $estado){
+    /**
+     * Enable or disable a home device by  Microcontroller pin
+     * @param $pin
+     * @param $estado
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateDevice($pin, $estado){
 		try{
 			$dispositivo = Dispositivos::where('pin', $pin)->first();
 			if(is_null($dispositivo))
-                                return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 404);
+			    return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 404);
 			$dispositivo->estado = (boolean)$estado;
 			if(!(boolean)$estado)
 				$dispositivo->encendido = (integer)false;
@@ -53,14 +84,18 @@ class DispositivosController extends Controller
 		}catch(Exception $e){}
 	}
 
-	/**
-     * Crea un nuevo dispositivo
+    /**
+     * Crate a new device in home
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
-	public function create(Request $request){
+    public function create(Request $request){
         $dispositivo = Dispositivos::where('pin', $request->pin)->firts();
-        if(!is_null($dispositivo))
-            if($dispositivo->estado)
-                return response()->json(['result' => 'error', 'data' => 'Dispositivo en uso'], 400);
+        if(is_null($dispositivo))
+            return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 404);
+
+        if($dispositivo->estado)
+            return response()->json(['result' => 'error', 'data' => 'Dispositivo en uso'], 400);
 
         $dispositivo = Dispositivos::create([
            'tag' => $request->tag,

@@ -19,8 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('dispositivos', 'DispositivosController@getAll');
 Route::get('dispositivo/{id}', 'DispositivosController@getById');
-Route::get('dispositivo/{pin}/estado', 'DispositivosController@getStatusById');
-Route::get('dispositivo/{pin}/estado/{estado}', 'DispositivosController@updateStatus');
-Route::get('dispositivo/{pin}/encendido/{encendido}/luminosidad/{luminosidad}', 'DispositivosController@updateDevice');
-
+Route::get('dispositivo/{pin}/estado', 'DispositivosController@getMicroControllerPinStatus');
+Route::get('dispositivo/{pin}/encendido/{encendido}/luminosidad/{luminosidad}', 'DispositivosController@syncDevice');
+Route::get('dispositivo/{pin}/{estado}', 'DispositivosController@updateDevice');
 Route::post('dispositivo', 'DispositivosController@create');
