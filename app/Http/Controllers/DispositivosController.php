@@ -93,11 +93,9 @@ class DispositivosController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function create(Request $request){
-        $dispositivo = Dispositivos::where('pin', $request->pin)->firts();
-        if(is_null($dispositivo))
-            return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 404);
+        $dispositivo = Dispositivos::where('pin', $request->pin)->first();
 
-        if($dispositivo->estado)
+        if(!is_null($dispositivo) && $dispositivo->estado)
             return response()->json(['result' => 'error', 'data' => 'Dispositivo en uso'], 400);
 
         $dispositivo = Dispositivos::create([
