@@ -40,7 +40,10 @@ class DispositivosController extends Controller
      */
     public function getMicroControllerPinStatus($pin){
 		try{
-			return response()->json(['result' => 'success', 'status' => (boolean)((Dispositivos::where('pin', $pin)->first())->estado)], 200);
+            $device = Dispositivos::where('pin', $pin)->first();
+            if(is_null($device))
+                return response()->json(['result' => 'error', 'data' => null]);
+			return response()->json(['result' => 'success', 'status' => (boolean)$device->estado], 200);
 		}catch(Exception $e){}
 	}
 
