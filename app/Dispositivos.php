@@ -25,4 +25,8 @@ class Dispositivos extends Model
     public function logs(){
         return $this->hasMany("App\Logs");
     }
+
+    public function prediccion(){
+        return $this->belongsTo("App\Predicciones");
+    }
 }
