@@ -29,4 +29,8 @@ class Dispositivos extends Model
     public function prediccion(){
         return $this->belongsTo("App\Predicciones");
     }
+
+    public function tipo(){
+        return $this->belongsTo("App\TipoDispositivo");
+    }
 }
