@@ -20,7 +20,7 @@ class DispositivosController extends Controller
      */
     public function getAll(){
 		try{
-			return response()->json(['result' => 'success', 'data' => Dispositivos::all()], 200);
+			return response()->json(Dispositivos::all(), 200);
 		}catch(Exception $e){}
 	}
 
