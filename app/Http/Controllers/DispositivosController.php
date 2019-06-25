@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Dispositivos;
+use App\Logs;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class DispositivosController
@@ -57,15 +59,31 @@ class DispositivosController extends Controller
     public function syncDevice($pin, $encendido, $luminosidad){
 		try{
 			$dispositivo = Dispositivos::where('pin', $pin)->first();
+
 			if(is_null($dispositivo))
 				return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 404);
 			if(!(boolean)$dispositivo->estado)
 				return response()->json(['result' => 'error', 'data' => 'Dispositivo desactivado'], 400);
+
 			$dispositivo->encendido = $encendido;
 			$dispositivo->luminosidad = $luminosidad;
 			$dispositivo->save();
+
+            $descripcion = ($dispositivo->encendido) ? "ENCENDIDO" : "APAGADO";
+
+            Log::create([
+                'id_dispositivo' => $dispositivo->id,
+                'descripcion' => $descripcion,
+                'encendido' => $dispositivo->encendido,
+                'luminosidad' => $dispositivo->luminosidad,
+                'fecha' => date('Y-m-d'),
+                'hora' => date('H:m:s')
+            ]);
+
 			return response()->json(['result' => 'success', 'data' => $dispositivo], 200);
-		}catch(Exception $e){}
+		}catch(Exception $e){
+            return response()->json(['result' => 'error', 'data' => [], 'trace' => $e->getMessage()], 500);
+        }
 	}
 
     /**
