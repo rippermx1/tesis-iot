@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e2ec06d-174d-4d67-b8b3-ab118bce87f2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Dispositivos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Dispositivos.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_04_04_135614_create_dispositivos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_04_04_135614_create_dispositivos_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,10 +46,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_25_195046_create_tipo_dispositivos_table.php">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_04_135614_create_dispositivos_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+            <state relative-caret-position="279">
+              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -91,8 +89,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/DispositivosController.php" />
         <option value="$PROJECT_DIR$/app/Dispositivos.php" />
         <option value="$PROJECT_DIR$/app/TipoDispositivo.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_04_135614_create_dispositivos_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_25_195046_create_tipo_dispositivos_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_04_04_135614_create_dispositivos_table.php" />
       </list>
     </option>
   </component>
@@ -268,18 +266,18 @@
       <workItem from="1560124255377" duration="7135000" />
       <workItem from="1560137010830" duration="12100000" />
       <workItem from="1561413072295" duration="8853000" />
-      <workItem from="1561489529559" duration="1571000" />
+      <workItem from="1561489529559" duration="2375000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34951000" />
+    <option name="totallyTimeSpent" value="35755000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18569905" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22091782" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -294,7 +292,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.23010753" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.37849462" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -450,13 +448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/TipoDispositivo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_25_144615_create_predicciones_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -464,17 +455,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_04_135614_create_dispositivos_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="23" column="48" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_25_195046_create_tipo_dispositivos_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/TipoDispositivo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_04_135614_create_dispositivos_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
         </state>
       </provider>
     </entry>

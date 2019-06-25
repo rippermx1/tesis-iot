@@ -20,8 +20,8 @@ class CreateDispositivosTable extends Migration
             $table->integer('estado')->nullable(true)->default(0);
             $table->boolean('encendido')->nullable(true)->default(false);
             $table->integer('luminosidad')->nullable(true)->default(0);
-            $table->string('icon', 250)->nullable(true);
             $table->integer('id_tipo_dispositivo')->nullable(true);
+            $table->string('icon', 250)->nullable(true);
             $table->timestamps();
         });
     }
