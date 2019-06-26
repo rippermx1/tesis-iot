@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\MicroController;
 use Illuminate\Http\Request;
 
 use App\Dispositivos;
@@ -111,6 +112,8 @@ class DispositivosController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function create(Request $request){
+        //$microcontroller =
+
         $dispositivo = Dispositivos::where('pin', $request->pin)->first();
 
         if(!is_null($dispositivo) && $dispositivo->estado)
