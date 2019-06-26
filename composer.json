@@ -59,7 +59,8 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "@php artisan migrate --force"
+            "@php artisan migrate --force",
+            "@php artisan migrate:fresh"
         ]
     }
 }
