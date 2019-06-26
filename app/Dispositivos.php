@@ -14,6 +14,8 @@ class Dispositivos extends Model
         'encendido',
         'luminosidad',
         'icon',
+        'id_tipo_dispositivo',
+        'id_micro_controlador',
         'created_at',
         'updated_at'
     ];
