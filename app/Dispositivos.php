@@ -33,4 +33,8 @@ class Dispositivos extends Model
     public function tipo(){
         return $this->belongsTo("App\TipoDispositivo");
     }
+
+    public function microcontrolador(){
+        return $this->belongsTo("App\MicroController");
+    }
 }

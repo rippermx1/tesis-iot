@@ -120,7 +120,7 @@ class DispositivosController extends Controller
            'tag' => $request->tag,
            'pin' => $request->pin
         ]);
-        return response()->json(['result' => 'success', 'data' => 'Dispositivo '.$dispositivo->tag.' creado'], 200);
+        return response()->json(['result' => 'success', 'data' => $dispositivo], 200);
     }
 
 }
