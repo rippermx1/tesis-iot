@@ -112,18 +112,49 @@ class DispositivosController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function create(Request $request){
-        //$microcontroller =
-
-        $dispositivo = Dispositivos::where('pin', $request->pin)->first();
-
-        if(!is_null($dispositivo) && $dispositivo->estado)
-            return response()->json(['result' => 'error', 'data' => 'Dispositivo en uso'], 400);
+        $pin = null;
+        $microcontroller = null;
+        $microcontroller_root_id = 2;
+        $microcontroller_pins = ['pin1','pin2','pin3','pin4','pin5','pin6'];
+        foreach ($microcontroller_pins as $microcontroller_pin){
+            $microcontroller = MicroController::where('id', $microcontroller_root_id)->where("{$microcontroller_pin}", 0)->first();
+            $pin = substr($microcontroller_pin, -1, 1);
+            if(!is_null($microcontroller))
+                break;
+        }
+        if(is_null($microcontroller))
+            return response()->json(['result' => 'error', 'data' => [], 'message' => 'Este microcontrolador tiene todos los pines ocupados.'], 400);
 
         $dispositivo = Dispositivos::create([
-           'tag' => $request->tag,
-           'pin' => $request->pin
+            'tag' => trim($request->tag),
+            'pin' => $pin,
+            'id_micro_controlador' => $microcontroller->id
         ]);
-        return response()->json(['result' => 'success', 'data' => $dispositivo], 200);
+
+        switch ($pin){
+            case 1:
+                $microcontroller->pin1 = (integer)true;
+                break;
+            case 2:
+                $microcontroller->pin2 = (integer)true;
+                break;
+            case 3:
+                $microcontroller->pin3 = (integer)true;
+                break;
+            case 4:
+                $microcontroller->pin4 = (integer)true;
+                break;
+            case 5:
+                $microcontroller->pin5 = (integer)true;
+                break;
+            case 6:
+                $microcontroller->pin6 = (integer)true;
+                break;
+            default:
+                break;
+        }
+        $microcontroller->save();
+        return response()->json(['result' => 'success', 'data' => $dispositivo, 'message' => "Dispositivo creado con exito. <a routerLink=\"/panel\">principal</a>"], 200);
     }
 
 }
