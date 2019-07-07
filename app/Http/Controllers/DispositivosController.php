@@ -192,8 +192,7 @@ class DispositivosController extends Controller
             default:
                 break;
         }
-        $dispositivo->id_tipo_dispositivo = 0;
-        $dispositivo->save();
+        Dispositivos::where('pin', $pin)->update(['id_tipo_dispositivo' => 0]);
         return response()->json(['result' => 'success', 'data' => [], 'message' => "Dispositivo eliminado."], 200);
     }
 
