@@ -24,3 +24,5 @@ Route::get('dispositivo/{pin}/encendido/{encendido}/luminosidad/{luminosidad}', 
 Route::get('dispositivo/{pin}/{estado}', 'DispositivosController@updateDevice');
 Route::post('dispositivo', 'DispositivosController@create');
 Route::get('dispositivo/{pin}', 'DispositivosController@delete');
+
+Route::get('activarMasivo', 'DispositivosController@activarMasivo');

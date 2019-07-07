@@ -196,4 +196,12 @@ class DispositivosController extends Controller
         $dispositivo->save();
         return response()->json(['result' => 'success', 'data' => $dispositivo, 'message' => "Dispositivo eliminado."], 200);
     }
+
+    public function activarMasivo(){
+        $devices = Dispositivos::all();
+        $devices->each(function($item){
+            $item->id_tipo_dispositivo = 1;
+            $item->save();
+        });
+    }
 }
