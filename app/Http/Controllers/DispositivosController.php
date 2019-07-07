@@ -68,11 +68,11 @@ class DispositivosController extends Controller
 			    $encendido = 1;
 			else
 			    $encendido = 0;
-			dd($encendido);
-			$dispositivo->encendido = (integer)$encendido;
+
+			$dispositivo->encendido = $encendido;
 			$dispositivo->luminosidad = $luminosidad;
 			$dispositivo->save();
-            dd($dispositivo);
+
             $descripcion = ($dispositivo->encendido == 1) ? "ENCENDIDO" : "APAGADO";
 
             Log::create([
