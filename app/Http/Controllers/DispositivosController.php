@@ -138,30 +138,28 @@ class DispositivosController extends Controller
             'id_micro_controlador' => $microcontroller->id
         ]);
 
-        $microcontroller = MicroController::find($microcontroller->id);
         switch ($pin){
             case 1:
-                $microcontroller->pin1 = (integer)true;
+                MicroController::where("id", $microcontroller->id)->update(['pin1'] , 1);
                 break;
             case 2:
-                $microcontroller->pin2 = (integer)true;
+                MicroController::where("id", $microcontroller->id)->update(['pin2'] , 1);
                 break;
             case 3:
-                $microcontroller->pin3 = (integer)true;
+                MicroController::where("id", $microcontroller->id)->update(['pin3'] , 1);
                 break;
             case 4:
-                $microcontroller->pin4 = (integer)true;
+                MicroController::where("id", $microcontroller->id)->update(['pin4'] , 1);
                 break;
             case 5:
-                $microcontroller->pin5 = (integer)true;
+                MicroController::where("id", $microcontroller->id)->update(['pin5'] , 1);
                 break;
             case 6:
-                $microcontroller->pin6 = (integer)true;
+                MicroController::where("id", $microcontroller->id)->update(['pin6'] , 1);
                 break;
             default:
                 break;
         }
-        $microcontroller->save();
         return response()->json(['result' => 'success', 'data' => $dispositivo, 'message' => "Dispositivo creado con exito."], 200);
     }
 
@@ -170,6 +168,29 @@ class DispositivosController extends Controller
         $dispositivo = Dispositivos::where('pin', $pin)->first();
         if(is_null($dispositivo))
             return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 200);
-        $dispositivo->
+
+        switch ($dispositivo->pin){
+            case 1:
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin1'] , 0);
+                break;
+            case 2:
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin2'] , 0);
+                break;
+            case 3:
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin3'] , 0);
+                break;
+            case 4:
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin4'] , 0);
+                break;
+            case 5:
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin5'] , 0);
+                break;
+            case 6:
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin6'] , 0);
+                break;
+            default:
+                break;
+        }
+        return response()->json(['result' => 'success', 'data' => $dispositivo, 'message' => "Dispositivo eliminado."], 200);
     }
 }

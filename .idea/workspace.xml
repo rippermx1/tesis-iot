@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7e2ec06d-174d-4d67-b8b3-ab118bce87f2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DispositivosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DispositivosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DispositivosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="145" column="9" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+            <state relative-caret-position="772">
+              <caret line="193" column="115" selection-start-line="193" selection-start-column="115" selection-end-line="193" selection-end-column="115" />
               <folding>
                 <element signature="e#40#64#0#PHP" expanded="true" />
               </folding>
@@ -261,7 +260,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59251000" />
+    <option name="totallyTimeSpent" value="60077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -493,8 +492,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DispositivosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="145" column="9" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+        <state relative-caret-position="772">
+          <caret line="193" column="115" selection-start-line="193" selection-start-column="115" selection-end-line="193" selection-end-column="115" />
           <folding>
             <element signature="e#40#64#0#PHP" expanded="true" />
           </folding>
