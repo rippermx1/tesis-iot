@@ -64,7 +64,7 @@ class DispositivosController extends Controller
 				return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 404);
 			if(!(boolean)$dispositivo->estado)
 				return response()->json(['result' => 'error', 'data' => 'Dispositivo desactivado'], 400);
-
+			dd((integer)$encendido);
 			$dispositivo->encendido = (integer)$encendido;
 			$dispositivo->luminosidad = $luminosidad;
 			$dispositivo->save();
