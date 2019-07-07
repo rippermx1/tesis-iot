@@ -138,6 +138,7 @@ class DispositivosController extends Controller
             'id_micro_controlador' => $microcontroller->id
         ]);
 
+        $microcontroller = MicroController::find($microcontroller->id);
         switch ($pin){
             case 1:
                 $microcontroller->pin1 = (integer)true;
@@ -164,4 +165,11 @@ class DispositivosController extends Controller
         return response()->json(['result' => 'success', 'data' => $dispositivo, 'message' => "Dispositivo creado con exito."], 200);
     }
 
+    public function delete($pin){
+        header('Access-Control-Allow-Origin: *');
+        $dispositivo = Dispositivos::where('pin', $pin)->first();
+        if(is_null($dispositivo))
+            return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 200);
+        $dispositivo->
+    }
 }

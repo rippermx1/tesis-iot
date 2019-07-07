@@ -23,3 +23,4 @@ Route::get('dispositivo/{pin}/estado', 'DispositivosController@getMicroControlle
 Route::get('dispositivo/{pin}/encendido/{encendido}/luminosidad/{luminosidad}', 'DispositivosController@syncDevice');
 Route::get('dispositivo/{pin}/{estado}', 'DispositivosController@updateDevice');
 Route::post('dispositivo', 'DispositivosController@create');
+Route::get('dispositivo/{pin}', 'DispositivosController@delete');
