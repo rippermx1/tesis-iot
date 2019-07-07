@@ -135,7 +135,7 @@ class DispositivosController extends Controller
         $dispositivo = Dispositivos::create([
             'tag' => trim($request->tag),
             'pin' => $pin,
-            'id_micro_controlador' => $microcontroller->id
+            'id_micro_controlador' => $microcontroller_root_id
         ]);
 
         switch ($pin){
