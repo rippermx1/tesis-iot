@@ -70,7 +70,7 @@ class DispositivosController extends Controller
 			$dispositivo->luminosidad = $luminosidad;
 			$dispositivo->save();
 
-            $descripcion = ($dispositivo->encendido) ? "ENCENDIDO" : "APAGADO";
+            $descripcion = ($dispositivo->encendido == 1) ? "ENCENDIDO" : "APAGADO";
 
             Log::create([
                 'id_dispositivo' => $dispositivo->id,
