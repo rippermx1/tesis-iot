@@ -20,6 +20,7 @@ class DispositivosController extends Controller
      */
     public function getAll(){
 		try{
+            header('Access-Control-Allow-Origin: *');
 			return response()->json(Dispositivos::all(), 200);
 		}catch(Exception $e){}
 	}
@@ -31,6 +32,7 @@ class DispositivosController extends Controller
      */
     public function getById($id){
 		try{
+            header('Access-Control-Allow-Origin: *');
 			return response()->json(['result' => 'success', 'data' => Dispositivos::where('id', $id)->first()]);
 		}catch(Exception $e){}
 	}
@@ -42,6 +44,7 @@ class DispositivosController extends Controller
      */
     public function getMicroControllerPinStatus($pin){
 		try{
+            header('Access-Control-Allow-Origin: *');
             $device = Dispositivos::where('pin', $pin)->first();
             if(is_null($device))
                 return response()->json(['result' => 'error', 'data' => null]);
@@ -58,6 +61,7 @@ class DispositivosController extends Controller
      */
     public function syncDevice($pin, $encendido, $luminosidad){
 		try{
+            header('Access-Control-Allow-Origin: *');
 			$dispositivo = Dispositivos::where('pin', $pin)->first();
             if(is_null($dispositivo))
 				return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 404);
@@ -96,6 +100,7 @@ class DispositivosController extends Controller
      */
     public function updateDevice($pin, $estado){
 		try{
+            header('Access-Control-Allow-Origin: *');
 			$dispositivo = Dispositivos::where('pin', $pin)->first();
 			if(is_null($dispositivo))
 			    return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 404);
@@ -113,6 +118,7 @@ class DispositivosController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function create(Request $request){
+        header('Access-Control-Allow-Origin: *');
         $pin = null;
         $microcontroller = null;
         $microcontroller_root_id = 2;
