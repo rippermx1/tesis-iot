@@ -123,13 +123,36 @@ class DispositivosController extends Controller
         $microcontroller = null;
         $microcontroller_root_id = 2;
         $microcontroller_pins = ['pin1','pin2','pin3','pin4','pin5','pin6'];
+        $microcontroller = MicroController::where('id', $microcontroller_root_id)->first();
         foreach ($microcontroller_pins as $microcontroller_pin){
-            $microcontroller = MicroController::where('id', $microcontroller_root_id)->where("{$microcontroller_pin}", 0)->first();
-            $pin = substr($microcontroller_pin, -1, 1);
-            if(!is_null($microcontroller))
-                break;
+            switch ($microcontroller_pin){
+                case "pin1":
+                    if($microcontroller->pin1 == 0)
+                        $pin = 1;
+                    break;
+                case "pin2":
+                    if($microcontroller->pin2 == 0)
+                        $pin = 2;
+                    break;
+                case "pin3":
+                    if($microcontroller->pin3 == 0)
+                        $pin = 3;
+                    break;
+                case "pin4":
+                    if($microcontroller->pin4 == 0)
+                        $pin = 4;
+                    break;
+                case "pin5":
+                    if($microcontroller->pin5 == 0)
+                        $pin = 5;
+                    break;
+                case "pin6":
+                    if($microcontroller->pin6 == 0)
+                        $pin = 6;
+                    break;
+            }
         }
-        if(is_null($microcontroller))
+        if(is_null($pin))
             return response()->json(['result' => 'error', 'data' => [], 'message' => 'Este microcontrolador tiene todos los pines ocupados.'], 200);
 
         $dispositivo = Dispositivos::create([
