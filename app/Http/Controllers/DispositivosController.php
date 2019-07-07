@@ -60,16 +60,15 @@ class DispositivosController extends Controller
     public function syncDevice($pin, $encendido, $luminosidad){
 		try{
 			$dispositivo = Dispositivos::where('pin', $pin)->first();
-            dd($encendido);
-			if(is_null($dispositivo))
+            if(is_null($dispositivo))
 				return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 404);
 			if(!(boolean)$dispositivo->estado)
 				return response()->json(['result' => 'error', 'data' => 'Dispositivo desactivado'], 400);
 
-			$dispositivo->encendido = $encendido;
+			$dispositivo->encendido = (integer)$encendido;
 			$dispositivo->luminosidad = $luminosidad;
 			$dispositivo->save();
-
+            dd($dispositivo);
             $descripcion = ($dispositivo->encendido == 1) ? "ENCENDIDO" : "APAGADO";
 
             Log::create([
