@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 use App\Dispositivos;
 use App\Logs;
-use Illuminate\Support\Facades\Log;
 
 /**
  * Class DispositivosController
@@ -64,17 +63,18 @@ class DispositivosController extends Controller
 				return response()->json(['result' => 'error', 'data' => 'Dispositivo no encontrado'] , 404);
 			if(!(boolean)$dispositivo->estado)
 				return response()->json(['result' => 'error', 'data' => 'Dispositivo desactivado'], 400);
+
 			if($encendido == true)
 			    $encendido = 1;
 			else
 			    $encendido = 0;
 
-            $descripcion = ($encendido == 1) ? "ENCENDIDO" : "APAGADO";
-
 			$dispositivo->encendido = $encendido;
 			$dispositivo->luminosidad = $luminosidad;
+            $dispositivo->save();
 
-            Log::create([
+            $descripcion = ($encendido == 1) ? "ENCENDIDO" : "APAGADO";
+            Logs::create([
                 'id_dispositivo' => $dispositivo->id,
                 'descripcion' => $descripcion,
                 'encendido' => $dispositivo->encendido,
@@ -82,7 +82,6 @@ class DispositivosController extends Controller
                 'fecha' => date('Y-m-d'),
                 'hora' => date('H:m:s')
             ]);
-            $dispositivo->save();
 			return response()->json(['result' => 'success', 'data' => $dispositivo], 200);
 		}catch(Exception $e){
             return response()->json(['result' => 'error', 'data' => [], 'trace' => $e->getMessage()], 500);
