@@ -130,7 +130,7 @@ class DispositivosController extends Controller
                 break;
         }
         if(is_null($microcontroller))
-            return response()->json(['result' => 'error', 'data' => [], 'message' => 'Este microcontrolador tiene todos los pines ocupados.'], 400);
+            return response()->json(['result' => 'error', 'data' => [], 'message' => 'Este microcontrolador tiene todos los pines ocupados.'], 200);
 
         $dispositivo = Dispositivos::create([
             'tag' => trim($request->tag),
@@ -161,7 +161,7 @@ class DispositivosController extends Controller
                 break;
         }
         $microcontroller->save();
-        return response()->json(['result' => 'success', 'data' => $dispositivo, 'message' => "Dispositivo creado con exito. <a routerLink=\"/panel\">principal</a>"], 200);
+        return response()->json(['result' => 'success', 'data' => $dispositivo, 'message' => "Dispositivo creado con exito."], 200);
     }
 
 }
