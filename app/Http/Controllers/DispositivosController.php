@@ -21,7 +21,7 @@ class DispositivosController extends Controller
     public function getAll(){
 		try{
             header('Access-Control-Allow-Origin: *');
-			return response()->json(Dispositivos::all(), 200);
+			return response()->json(Dispositivos::where('id_tipo_dispositivo', 1), 200);
 		}catch(Exception $e){}
 	}
 
@@ -135,7 +135,8 @@ class DispositivosController extends Controller
         $dispositivo = Dispositivos::create([
             'tag' => trim($request->tag),
             'pin' => $pin,
-            'id_micro_controlador' => $microcontroller_root_id
+            'id_micro_controlador' => $microcontroller_root_id,
+            'id_tipo_dispositivo' => 1
         ]);
 
         switch ($pin){
@@ -191,6 +192,8 @@ class DispositivosController extends Controller
             default:
                 break;
         }
+        $dispositivo->id_tipo_dispositivo = 0;
+        $dispositivo->save();
         return response()->json(['result' => 'success', 'data' => $dispositivo, 'message' => "Dispositivo eliminado."], 200);
     }
 }
