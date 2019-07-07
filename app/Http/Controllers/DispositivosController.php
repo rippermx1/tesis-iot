@@ -118,7 +118,7 @@ class DispositivosController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function create(Request $request){
-        dd($request->tag);
+        dd($request->all());
         header('Access-Control-Allow-Origin: *');
         $pin = null;
         $microcontroller = null;
