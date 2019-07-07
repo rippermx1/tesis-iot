@@ -172,29 +172,29 @@ class DispositivosController extends Controller
 
         switch ($dispositivo->pin){
             case 1:
-                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin1'] , 0);
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin1' => 0]);
                 break;
             case 2:
-                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin2'] , 0);
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin2' => 0]);
                 break;
             case 3:
-                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin3'] , 0);
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin3' => 0]);
                 break;
             case 4:
-                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin4'] , 0);
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin4' => 0]);
                 break;
             case 5:
-                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin5'] , 0);
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin5' => 0]);
                 break;
             case 6:
-                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin6'] , 0);
+                MicroController::where("id", $dispositivo->id_micro_controlador)->update(['pin6' => 0]);
                 break;
             default:
                 break;
         }
         $dispositivo->id_tipo_dispositivo = 0;
         $dispositivo->save();
-        return response()->json(['result' => 'success', 'data' => $dispositivo, 'message' => "Dispositivo eliminado."], 200);
+        return response()->json(['result' => 'success', 'data' => [], 'message' => "Dispositivo eliminado."], 200);
     }
 
     public function activarMasivo(){
