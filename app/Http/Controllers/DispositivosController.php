@@ -141,22 +141,22 @@ class DispositivosController extends Controller
 
         switch ($pin){
             case 1:
-                MicroController::where("id", $microcontroller->id)->update(['pin1' => 1]);
+                MicroController::where("id", $microcontroller_root_id)->update(['pin1' => 1]);
                 break;
             case 2:
-                MicroController::where("id", $microcontroller->id)->update(['pin2' => 1]);
+                MicroController::where("id", $microcontroller_root_id)->update(['pin2' => 1]);
                 break;
             case 3:
-                MicroController::where("id", $microcontroller->id)->update(['pin3' => 1]);
+                MicroController::where("id", $microcontroller_root_id)->update(['pin3' => 1]);
                 break;
             case 4:
-                MicroController::where("id", $microcontroller->id)->update(['pin4' => 1]);
+                MicroController::where("id", $microcontroller_root_id)->update(['pin4' => 1]);
                 break;
             case 5:
-                MicroController::where("id", $microcontroller->id)->update(['pin5' => 1]);
+                MicroController::where("id", $microcontroller_root_id)->update(['pin5' => 1]);
                 break;
             case 6:
-                MicroController::where("id", $microcontroller->id)->update(['pin6' => 1]);
+                MicroController::where("id", $microcontroller_root_id)->update(['pin6' => 1]);
                 break;
             default:
                 break;
