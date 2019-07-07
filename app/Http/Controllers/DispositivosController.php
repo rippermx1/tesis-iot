@@ -69,11 +69,10 @@ class DispositivosController extends Controller
 			else
 			    $encendido = 0;
 
+            $descripcion = ($encendido == 1) ? "ENCENDIDO" : "APAGADO";
+
 			$dispositivo->encendido = $encendido;
 			$dispositivo->luminosidad = $luminosidad;
-			$dispositivo->save();
-
-            $descripcion = ($dispositivo->encendido == 1) ? "ENCENDIDO" : "APAGADO";
 
             Log::create([
                 'id_dispositivo' => $dispositivo->id,
@@ -83,7 +82,7 @@ class DispositivosController extends Controller
                 'fecha' => date('Y-m-d'),
                 'hora' => date('H:m:s')
             ]);
-
+            $dispositivo->save();
 			return response()->json(['result' => 'success', 'data' => $dispositivo], 200);
 		}catch(Exception $e){
             return response()->json(['result' => 'error', 'data' => [], 'trace' => $e->getMessage()], 500);
