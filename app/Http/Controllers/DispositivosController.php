@@ -130,10 +130,8 @@ class DispositivosController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function create(Request $request){
+    public function create($tag){
         header('Access-Control-Allow-Origin: *');
-        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
         $pin = null;
         $microcontroller = null;
         $microcontroller_root_id = 2;
@@ -171,7 +169,7 @@ class DispositivosController extends Controller
             return response()->json(['result' => 'error', 'data' => [], 'message' => 'Este microcontrolador tiene todos los pines ocupados.'], 200);
 
         $dispositivo = Dispositivos::create([
-            'tag' => trim($request->tag),
+            'tag' => trim($tag),
             'pin' => $pin,
             'id_micro_controlador' => $microcontroller_root_id,
             'id_tipo_dispositivo' => 1

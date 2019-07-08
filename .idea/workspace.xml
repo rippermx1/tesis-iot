@@ -20,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="475">
+              <caret line="25" column="69" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -29,8 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DispositivosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="135" column="71" selection-start-line="135" selection-start-column="71" selection-end-line="135" selection-end-column="71" />
+            <state relative-caret-position="407">
+              <caret line="171" column="27" selection-start-line="171" selection-start-column="27" selection-end-line="171" selection-end-column="27" />
               <folding>
                 <element signature="e#40#64#0#PHP" expanded="true" />
               </folding>
@@ -237,12 +237,12 @@
       <workItem from="1561413072295" duration="8853000" />
       <workItem from="1561489529559" duration="15473000" />
       <workItem from="1562549534691" duration="3845000" />
-      <workItem from="1562612125423" duration="3744000" />
+      <workItem from="1562612125423" duration="4502000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72970000" />
+    <option name="totallyTimeSpent" value="73728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1440" height="900" extended-state="6" />
@@ -467,15 +467,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="475">
+          <caret line="25" column="69" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DispositivosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="135" column="71" selection-start-line="135" selection-start-column="71" selection-end-line="135" selection-end-column="71" />
+        <state relative-caret-position="407">
+          <caret line="171" column="27" selection-start-line="171" selection-start-column="27" selection-end-line="171" selection-end-column="27" />
           <folding>
             <element signature="e#40#64#0#PHP" expanded="true" />
           </folding>
