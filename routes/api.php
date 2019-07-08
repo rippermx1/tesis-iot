@@ -26,5 +26,6 @@ Route::get('dispositivo/{pin}/{estado}', 'DispositivosController@updateDevice');
 Route::post('dispositivo', 'DispositivosController@create');
 Route::get('delete/dispositivo/{pin}', 'DispositivosController@delete');
 Route::get('microcontrollers', 'DispositivosController@getMicrocontrollers');
+Route::get('predecir/dispositivo/{id}', 'DispositivosController@calculatePredictPattern');
 
 Route::get('activarMasivo', 'DispositivosController@activarMasivo');

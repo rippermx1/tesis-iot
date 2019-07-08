@@ -132,6 +132,8 @@ class DispositivosController extends Controller
      */
     public function create(Request $request){
         header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
         $pin = null;
         $microcontroller = null;
         $microcontroller_root_id = 2;
@@ -236,6 +238,16 @@ class DispositivosController extends Controller
         try{
             header('Access-Control-Allow-Origin: *');
             $microcontroller_root_id = 2;
+            return response()->json(['result' => 'success', 'microcontroller' => MicroController::where('id', $microcontroller_root_id)->first()]);
+        }catch(Exception $e){}
+    }
+
+    public function calculatePredictPattern($id){
+        try{
+            header('Access-Control-Allow-Origin: *');
+            $device = Dispositivos::where('id', $id)->first();
+            $logs_encendido = Logs::where('id_dispositivo', $device->id)->where('encendido', 1)->get();
+            $logs_apagado = Logs::where('id_dispositivo', $device->id)->where('encendido', 0)->get();
             return response()->json(['result' => 'success', 'microcontroller' => MicroController::where('id', $microcontroller_root_id)->first()]);
         }catch(Exception $e){}
     }
