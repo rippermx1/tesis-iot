@@ -14,6 +14,19 @@ use App\Logs;
  */
 class DispositivosController extends Controller
 {
+
+    public function getAllArduino{
+        try{
+            header('Access-Control-Allow-Origin: *');
+            $dispositivos = Dispositivos::where('id_tipo_dispositivo', 1)->get();
+            $data = [];
+            foreach ($dispositivos as $dispositivo){
+                array_push($data, [$dispositivo->id,$dispositivo->encendido]);
+            }
+            return response()->json(['dispositivos' => $data], 200);
+        }catch(Exception $e){}
+    }
+
     /**
      * Get all home's devices
      * @return \Illuminate\Http\JsonResponse

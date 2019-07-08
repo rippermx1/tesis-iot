@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('dispositivos', 'DispositivosController@getAll');
+Route::get('arduino/dispositivos', 'DispositivosController@getAllArduino');
 Route::get('dispositivo/{id}', 'DispositivosController@getById');
 Route::get('dispositivo/{pin}/estado', 'DispositivosController@getMicroControllerPinStatus');
 Route::get('dispositivo/{pin}/encendido/{encendido}/luminosidad/{luminosidad}', 'DispositivosController@syncDevice');
