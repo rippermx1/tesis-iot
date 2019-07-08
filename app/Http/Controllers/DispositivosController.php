@@ -21,7 +21,7 @@ class DispositivosController extends Controller
     public function getAll(){
 		try{
             header('Access-Control-Allow-Origin: *');
-			return response()->json(Dispositivos::where('id_tipo_dispositivo', 1)->get(), 200);
+			return response()->json(Dispositivos::select('id','pin','tag','estado','encendido','luminosidad')->where('id_tipo_dispositivo', 1)->get(), 200);
 		}catch(Exception $e){}
 	}
 
