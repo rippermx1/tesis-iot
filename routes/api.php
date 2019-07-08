@@ -23,7 +23,7 @@ Route::get('dispositivo/{id}', 'DispositivosController@getById');
 Route::get('dispositivo/{pin}/estado', 'DispositivosController@getMicroControllerPinStatus');
 Route::get('dispositivo/{pin}/encendido/{encendido}/luminosidad/{luminosidad}', 'DispositivosController@syncDevice');
 Route::get('dispositivo/{pin}/{estado}', 'DispositivosController@updateDevice');
-Route::get('dispositivo/create/{tag}', 'DispositivosController@create');
+Route::get('create/dispositivo/{tag}', 'DispositivosController@create');
 Route::get('delete/dispositivo/{pin}', 'DispositivosController@delete');
 Route::get('microcontrollers', 'DispositivosController@getMicrocontrollers');
 Route::get('predecir/dispositivo/{id}', 'DispositivosController@calculatePredictPattern');
