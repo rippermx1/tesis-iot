@@ -21,7 +21,7 @@ class DispositivosController extends Controller
             $dispositivos = Dispositivos::where('id_tipo_dispositivo', 1)->get();
             $data = [];
             foreach ($dispositivos as $dispositivo){
-                array_push($data, [$dispositivo->id,$dispositivo->encendido]);
+                array_push($data, [$dispositivo->pin,$dispositivo->encendido]);
             }
             return response()->json( $data ,200);
         }catch(Exception $e){}
