@@ -246,7 +246,7 @@ class DispositivosController extends Controller
             $device = Dispositivos::where('id', $id)->first();
             $logs_encendido = Logs::where('id_dispositivo', $device->id)->where('encendido', 1)->get();
             $logs_apagado = Logs::where('id_dispositivo', $device->id)->where('encendido', 0)->get();
-            return response()->json(['result' => 'success', 'microcontroller' => MicroController::where('id', $microcontroller_root_id)->first()]);
+            //return response()->json(['result' => 'success', 'microcontroller' => MicroController::where('id', $microcontroller_root_id)->first()]);
         }catch(Exception $e){}
     }
 
