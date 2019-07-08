@@ -232,6 +232,14 @@ class DispositivosController extends Controller
         return response()->json(['result' => 'success', 'data' => [], 'message' => "Dispositivo eliminado."], 200);
     }
 
+    public function getMicrocontrollers(){
+        try{
+            header('Access-Control-Allow-Origin: *');
+            $microcontroller_root_id = 2;
+            return response()->json(['result' => 'success', MicroController::where('id', $microcontroller_root_id)->first()]);
+        }catch(Exception $e){}
+    }
+
     public function activarMasivo(){
         $devices = Dispositivos::all();
         $devices->each(function($item){
