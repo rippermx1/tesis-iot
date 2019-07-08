@@ -23,7 +23,7 @@ class DispositivosController extends Controller
             foreach ($dispositivos as $dispositivo){
                 array_push($data, [$dispositivo->id,$dispositivo->encendido]);
             }
-            return response()->json(['dispositivos' => $data], 200);
+            return response()->json( $data ,200);
         }catch(Exception $e){}
     }
 
