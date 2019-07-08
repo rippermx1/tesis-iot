@@ -15,7 +15,7 @@ use App\Logs;
 class DispositivosController extends Controller
 {
 
-    public function getAllArduino{
+    public function getAllArduino(){
         try{
             header('Access-Control-Allow-Origin: *');
             $dispositivos = Dispositivos::where('id_tipo_dispositivo', 1)->get();
